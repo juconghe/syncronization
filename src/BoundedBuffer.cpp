@@ -31,13 +31,10 @@ int BoundedBuffer::remove(){
 	while (isEmpty()) {
 		pthread_cond_wait(&buffer_full,&buffer_lock);
 	}
-	int temp = buffer[0];
-	for (size_t i = 0; i < buffer_cnt-1; i++) {
-		buffer[i] = buffer[i+1];
-	}
-	buffer[buffer_cnt-1] = 0;
+	int index = (buffer_last+(buffer_size-buffer_cnt))%buffer_size;
+	int temp = buffer[index];
+	buffer[index] = 0;
 	buffer_cnt  -= 1;
-	buffer_last = buffer_cnt;
 	pthread_cond_signal(&buffer_empty);
 	pthread_mutex_unlock(&buffer_lock);
 	return temp;
