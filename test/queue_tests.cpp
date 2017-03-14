@@ -24,7 +24,7 @@ TEST(PCTest, Test2){
 }
 
 TEST(PCTest, Test3){
-    InitProducerConsumer(10,10,1000,1,10);
+    InitProducerConsumer(1,1,1000,1,10);
 }
 
 int main(int argc, char **argv) {

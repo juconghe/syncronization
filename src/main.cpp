@@ -1,6 +1,8 @@
 #include "ProducerConsumer.h"
 
 int main(int argc, char* argv[]){
+	// InitProducerConsumer(5,1,1,1000,10);
+	// InitProducerConsumer(10,10,1000,1,10);
 	if (argc !=6){
 		printf("usage: prodcon #producers #consumers #psleep #csleep #items\n");
         return 1;
